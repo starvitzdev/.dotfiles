@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Use fzf to let the user choose a file
+file=$(fzf)
+
+# If no file is selected, exit
+if [[ -z $file ]]; then
+    exit 0
+fi
+
+# Get the directory of the selected file
+file_dir=$(dirname "$file")
+
+# Extract the tmux session name (we will use the directory as the session name)
+selected_name=$(basename "$file_dir" | tr . _)
+
+# Check if tmux is running
+tmux_running=$(pgrep tmux)
+
+# If tmux is not running, create a new tmux session with the selected file's directory
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c "$file_dir" -d
+    tmux new-window -t $selected_name -c "$file_dir" -n "$(basename "$file")" "nvim $file"
+    tmux switch-client -t $selected_name
+    exit 0
+fi
+
+# If tmux session exists, create a new window in the session with the selected file
+if tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-window -t=$selected_name -c "$file_dir" -n "$(basename "$file")" "nvim $file"
+    tmux switch-client -t $selected_name
+else
+    # If the session doesn't exist, create it
+    tmux new-session -ds $selected_name -c "$file_dir"
+    tmux new-window -t $selected_name -c "$file_dir" -n "$(basename "$file")" "nvim $file"
+    tmux switch-client -t $selected_name
+fi

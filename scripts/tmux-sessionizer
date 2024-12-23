@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Handle directory selection
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/ ~/code ~/sandbox ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+# Exit if no directory selected
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+# Case 1: No tmux server running
+if [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+fi
+
+# Case 2: Tmux server is running but we're not in a session
+if [[ -z $TMUX ]]; then
+    # Create session if it doesn't exist
+    if ! tmux has-session -t=$selected_name 2>/dev/null; then
+        tmux new-session -ds $selected_name -c $selected
+    fi
+    # Always attach in this case
+    tmux attach-session -t $selected_name
+    exit 0
+fi
+
+# Case 3: We're already in a tmux session
+if ! tmux has-session -t=$selected_name 2>/dev/null; then
+    tmux new-session -ds $selected_name -c $selected
+fi
+# Only use switch-client if we're actually in a tmux session
+if [[ -n $TMUX ]]; then
+    tmux switch-client -t $selected_name
+else
+    tmux attach-session -t $selected_name
+fi
