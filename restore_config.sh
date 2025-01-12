@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd
+cd ~/.dotfiles
+git pull
 cp -Tr ~/.dotfiles/waybar ~/.config/waybar 
 cp -Tr ~/.dotfiles/nvim ~/.config/nvim
 cp -Tr ~/.dotfiles/sway ~/.config/sway
