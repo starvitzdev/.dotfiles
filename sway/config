@@ -59,6 +59,7 @@ client.focused "#cba6f7" "#cba6f7" "#ffffff" "#cba6f7"
 ##################################
 output eDP-1 pos 0 1080 resolution 2560x1440@60.012hz scale 1.5 
 output HDMI-A-2 pos 0 0 resolution 1920x1080@60.000hz 
+output DP-4 resolution 2560x1440@239.964hz
 
 # define display output names
 set $disp1 DP-4
