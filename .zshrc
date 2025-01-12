@@ -1,3 +1,4 @@
+cat aftonbladet
 # export ZSH alias
 export ZSH="$HOME/.oh-my-zsh"
 
