@@ -1,3 +1,6 @@
+# Hello from the other config whats good!
+
+
 # export ZSH alias
 export ZSH="$HOME/.oh-my-zsh"
 
