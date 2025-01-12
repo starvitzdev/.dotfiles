@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Run fzf and store the result
+selected_file=$(fzf)
+
+# Check if fzf was cancelled (no file selected)
+if [ -z "$selected_file" ]; then
+    # Exit cleanly if no file was selected (user pressed escape)
+    exit 0
+fi
+
+# If a file was selected, open it in nvim
+nvim "$selected_file"

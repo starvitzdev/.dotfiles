@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Function to execute nvim with fzf selection or do nothing if escape is pressed
+run_fzf_nvim() {
+    while true; do
+        # Wait for keypress using read
+        read -rsn1 input
+
+        # If Escape (key code 27) is pressed, exit and return to terminal
+        if [[ "$input" == $'\e' ]]; then
+            echo "Escape pressed, returning to terminal."
+            return
+        fi
+
+        # If the sequence ^[[23~ is pressed (function key F12 or specific key)
+        if [[ "$input" == $'\e[23~' ]]; then
+            # Run fzf and nvim
+            selection=$(fzf)
+            if [[ -n "$selection" ]]; then
+                nvim "$selection"
+            fi
+        fi
+    done
+}
+
+# Start the function
+run_fzf_nvim
