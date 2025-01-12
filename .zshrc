@@ -9,7 +9,7 @@ alias vi=nvim
 alias vim=nvim
 
 # Copy config and push to git
-alias starvitz_copy_config="cp_dotfiles.sh"
+alias starvitz_copy_config="~/.dotfiles/bin/restore_config.sh"
 
 # Export path
 export PATH=$PATH:/home/starvitz/.local/bin
