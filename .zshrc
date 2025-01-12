@@ -8,6 +8,9 @@ ZSH_THEME="robbyrussell"
 alias vi=nvim
 alias vim=nvim
 
+# Copy config and push to git
+alias starvitz_copy_config="cp_dotfiles.sh"
+
 # Export path
 export PATH=$PATH:/home/starvitz/.local/bin
 
