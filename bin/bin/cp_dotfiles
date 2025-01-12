@@ -7,6 +7,7 @@ cp -r /etc/keyd ~/.dotfiles/keyd
 cp .zshrc ~/.dotfiles/.zshrc
 cp -r wallpaper ~/.dotfiles/wallpaper
 cp -r .local/bin ~/.dotfiles/bin
+cp -r .wezterm.lua ~/.dotfiles/wezterm.lua
 cd ~/.dotfiles
 
 git add .

@@ -1,4 +1,4 @@
-# Export ZSH alias
+#Export ZSH alias
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set theme
