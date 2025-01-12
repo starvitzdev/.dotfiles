@@ -9,7 +9,7 @@ alias vi=nvim
 alias vim=nvim
 
 # Copy config and push to git
-alias restore_config="~/.dotfiles/bin/restore_config.sh"
+alias restore_config="~/.dotfiles/restore_config.sh"
 alias cp_config="~/.local/bin/cp_dotfiles.sh"
 
 # Export path
