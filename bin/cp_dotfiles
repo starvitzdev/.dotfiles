@@ -1,12 +1,13 @@
 cd
-cp -r .config/waybar ~/.dotfiles/waybar
-cp -r .config/nvim ~/.dotfiles/nvim
-cp -r .config/sway ~/.dotfiles/sway
-cp -r .config/fuzzel ~/.dotfiles/fuzzel
+cp -r ~/.config/waybar ~/.dotfiles/waybar
+cp -r ~/.config/nvim ~/.dotfiles/nvim
+cp -r ~/.config/sway ~/.dotfiles/sway
+cp -r ~/.config/fuzzel ~/.dotfiles/fuzzel
 cp -r /etc/keyd ~/.dotfiles/keyd
-cp .zshrc ~/.dotfiles/.zshrc
-cp -r wallpaper ~/.dotfiles/wallpaper
-cp -r .local/bin ~/.dotfiles/bin
+cp ~/.zshrc ~/.dotfiles/.zshrc
+cp -r ~/wallpaper ~/.dotfiles/wallpaper
+cp -r ~/.local/bin ~/.dotfiles/bin
+cp -r ~/.oh-my-posh ~/.dotfiles/.oh-my-posh
 cd ~/.dotfiles
 
 git add .
