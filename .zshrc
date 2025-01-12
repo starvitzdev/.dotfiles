@@ -24,6 +24,5 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo)
 # Start oh my zsh
 source $ZSH/oh-my-zsh.sh
 
-
 # Start OhMyPosh with the catppuccin theme.
-eval "$(oh-my-posh init zsh --config /home/starvitz/.cache/oh-my-posh/themes/catppuccin_mocha.omp.json)"
+eval "$(oh-my-posh init zsh --config /home/starvitz/.oh-my-posh/catppuccin.omp.json)"
