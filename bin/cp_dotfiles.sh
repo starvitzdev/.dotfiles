@@ -6,7 +6,7 @@ cp -Tr ~/.config/nvim ~/.dotfiles/nvim
 cp -Tr ~/.config/sway ~/.dotfiles/sway
 cp -Tr ~/.config/fuzzel ~/.dotfiles/fuzzel
 cp -Tr /etc/keyd ~/.dotfiles/keyd
-cp -Tr ~/.wezterm.lua ~/.dotfiles/wezterm.lua
+cp -Tr ~/.wezterm.lua ~/.dotfiles/.wezterm.lua
 cp -Tr ~/.zshrc ~/.dotfiles/.zshrc
 cp -Tr ~/wallpaper ~/.dotfiles/wallpaper
 cp -Tr ~/.local/bin ~/.dotfiles/bin
